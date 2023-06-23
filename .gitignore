@@ -1,0 +1,8 @@
+/.idea
+/Library
+*.csproj
+/Logs
+/obj
+/Temp
+/Builds
+LostPassword.sln
