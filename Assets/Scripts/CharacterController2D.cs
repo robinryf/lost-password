@@ -55,6 +55,23 @@ public class CharacterController2D : MonoBehaviour
 
     private IInteractableObject currentInteractable;
 
+    private IInteractableObject CurrentInteractable
+    {
+	    get => currentInteractable;
+	    set
+	    {
+		    if (currentInteractable != null)
+		    {
+			    currentInteractable.OnInteractableChanged(false);
+		    }
+		    currentInteractable = value;
+		    if (currentInteractable != null)
+		    {
+			    currentInteractable.OnInteractableChanged(true);
+		    }
+	    }
+    }
+
     private int animatorGroundedBool;
     private int animatorRunningSpeed;
     private int animatorJumpTrigger;
@@ -98,14 +115,19 @@ public class CharacterController2D : MonoBehaviour
 
     void Update()
     {
+	    if (CurrentInteractable != null && CurrentInteractable.IsInteractable == false)
+	    {
+		    CurrentInteractable = null;
+	    }
+ 
         var keyboard = Keyboard.current;
 
         if (!CanMove || keyboard == null)
             return;
 
-        if (currentInteractable != null && keyboard.eKey.wasReleasedThisFrame)
+        if (CurrentInteractable != null && keyboard.eKey.wasReleasedThisFrame)
         {
-	        currentInteractable.OnInteract();
+	        CurrentInteractable.OnInteract();
         }
         
         // Horizontal movement
@@ -137,13 +159,37 @@ public class CharacterController2D : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+	    MarkObjectAsInteractable(other);
+    }
+
+    private void MarkObjectAsInteractable(Collider2D other)
+    {
 	    var comps = other.GetComponentsInParent<MonoBehaviour>();
 	    foreach (var comp in comps)
 	    {
-		    if (comp is IInteractableObject interactableObject)
+		    if (comp is IInteractableObject interactableObject && interactableObject.IsInteractable)
 		    {
-			    currentInteractable = interactableObject;
-			    Debug.Log($"Set {currentInteractable} to interactable");
+			    CurrentInteractable = interactableObject;
+			    Debug.Log($"Set {CurrentInteractable} to interactable");
+			    break;
+		    }
+	    }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+	    MarkObjectAsInteractable(other);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+	    var comps = other.GetComponentsInParent<MonoBehaviour>();
+	    foreach (var comp in comps)
+	    {
+		    if (comp is IInteractableObject interactableObject && interactableObject == CurrentInteractable)
+		    {
+			    CurrentInteractable = null;
+			    Debug.Log("Interactable is null");
 			    break;
 		    }
 	    }
