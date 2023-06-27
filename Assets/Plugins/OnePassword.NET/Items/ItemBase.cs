@@ -27,31 +27,31 @@ namespace OnePassword.Items
 		/// The item category.
 		/// </summary>
 		[JsonProperty("category")]
-		public Category Category { get; } = Category.Unknown;
+		public Category Category { get; private set; } = Category.Unknown;
 
 		/// <summary>
 		/// The item sections.
 		/// </summary>
 		[JsonProperty("sections")]
-		public TrackedList<Section> Sections { get; } = new();
+		public TrackedList<Section> Sections { get; private set; } = new();
 
 		/// <summary>
 		/// The item fields.
 		/// </summary>
 		[JsonProperty("fields")]
-		public TrackedList<Field> Fields { get; } = new();
+		public TrackedList<Field> Fields { get; private set; } = new();
 
 		/// <summary>
 		/// The item URLs.
 		/// </summary>
 		[JsonProperty("urls")]
-		public TrackedList<Url> Urls { get; } = new();
+		public TrackedList<Url> Urls { get; private set; } = new();
 
 		/// <summary>
 		/// The tags associated with the item.
 		/// </summary>
 		[JsonProperty("tags")]
-		public TrackedList<string> Tags { get; } = new();
+		public TrackedList<string> Tags { get; private set; } = new();
 
 		/// <summary>
 		/// Returns <see langword="true"/> when the title has changed, <see langword="false"/> otherwise.

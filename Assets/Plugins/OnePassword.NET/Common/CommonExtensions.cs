@@ -53,7 +53,7 @@ namespace OnePassword.Common
 			var values = fields.Select(field => field.ToEnumString()).ToList();
 			var commaSeparated = string.Join(",", values);
 			return replaceUnderscoresWithSpaces
-				? commaSeparated.Replace("_", " ", StringComparison.InvariantCulture)
+				? commaSeparated.Replace("_", " ")
 				: commaSeparated;
 		}
 
@@ -68,7 +68,7 @@ namespace OnePassword.Common
 		{
 			var commaSeparated = string.Join(",", items);
 			return replaceUnderscoresWithSpaces
-				? commaSeparated.Replace("_", " ", StringComparison.InvariantCulture)
+				? commaSeparated.Replace("_", " ")
 				: commaSeparated;
 		}
 	}

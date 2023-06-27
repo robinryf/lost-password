@@ -33,7 +33,7 @@ namespace OnePassword.Common
 				if (enumMemberAttribute is { Value: not null })
 				{
 					var enumMemberString = enumMemberAttribute.Value.ToUpperInvariant()
-						.Replace(" ", "_", StringComparison.InvariantCulture);
+						.Replace(" ", "_");
 					_enumToString.Add((TEnum)enumMemberValue, enumMemberString);
 					_stringToEnum.Add(enumMemberString, (TEnum)enumMemberValue);
 				}
@@ -60,7 +60,7 @@ namespace OnePassword.Common
 			
 			var stringValue = reader.Value as string ?? "Unknown";
 
-			var enumMemberString = stringValue.ToUpperInvariant().Replace(" ", "_", StringComparison.InvariantCulture);
+			var enumMemberString = stringValue.ToUpperInvariant().Replace(" ", "_");
 			if (_stringToEnum.TryGetValue(enumMemberString, out var enumValue))
 				return enumValue;
 

@@ -207,7 +207,7 @@ namespace OnePassword
 			{
 				if (field.TypeChanged)
 					fieldAssignment +=
-						$"[{field.Type.ToEnumString().ToLower().Replace(" ", "", StringComparison.InvariantCulture)}]";
+						$"[{field.Type.ToEnumString().ToLower().Replace(" ", "")}]";
 				fieldAssignment += $"={field.Value}";
 			}
 

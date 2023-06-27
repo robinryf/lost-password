@@ -15,7 +15,7 @@ namespace OnePassword.Items
 		/// The field section.
 		/// </summary>
 		[JsonProperty("section")]
-		public Section? Section { get; }
+		public Section? Section { get; private set;  }
 
 		/// <summary>
 		/// The field ID.
@@ -47,7 +47,7 @@ namespace OnePassword.Items
 		/// The field purpose.
 		/// </summary>
 		[JsonProperty("purpose")]
-		public FieldPurpose? Purpose { get; }
+		public FieldPurpose? Purpose { get; private set; }
 
 		/// <summary>
 		/// The field value.
@@ -67,13 +67,13 @@ namespace OnePassword.Items
 		/// Password details when the field is a password type field.
 		/// </summary>
 		[JsonProperty("password_details")]
-		public PasswordDetails? PasswordDetails { get; }
+		public PasswordDetails? PasswordDetails { get; private set; }
 
 		/// <summary>
 		/// The reference path to the field.
 		/// </summary>
 		[JsonProperty("reference")]
-		public string? Reference { get; }
+		public string? Reference { get; private set; }
 
 		/// <summary>
 		/// Returns <see langword="true"/> when the field type has changed, <see langword="false"/> otherwise.
@@ -109,7 +109,7 @@ namespace OnePassword.Items
 		/// <param name="section">The field section.</param>
 		public Field(string label, FieldType type, string value, Section? section = null)
 		{
-			Id = label.ToLower(CultureInfo.InvariantCulture).Replace(" ", "_", StringComparison.InvariantCulture);
+			Id = label.ToLower(CultureInfo.InvariantCulture).Replace(" ", "_");
 			Label = label;
 			Type = type;
 			Value = value;

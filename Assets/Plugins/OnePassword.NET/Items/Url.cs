@@ -33,7 +33,7 @@ namespace OnePassword.Items
 		/// Returns <see langword="true"/> when the URL is the primary URL for the item, <see langword="false"/> otherwise.
 		/// </summary>
 		[JsonProperty("primary")]
-		public bool Primary { get; }
+		public bool Primary { get; private set; }
 
 		/// <inheritdoc />
 		bool ITracked.Changed => _changed;

@@ -35,7 +35,7 @@ namespace OnePassword.Items
 		/// <param name="label">The section label.</param>
 		public Section(string label)
 		{
-			Id = label.ToLower(CultureInfo.InvariantCulture).Replace(" ", "_", StringComparison.InvariantCulture);
+			Id = label.ToLower(CultureInfo.InvariantCulture).Replace(" ", "_");
 			Label = label;
 		}
 	}
