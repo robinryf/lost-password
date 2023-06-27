@@ -1,5 +1,4 @@
 using System;
-using Febucci.UI;
 using RobinBird.Utilities.Unity.Extensions;
 using Stateless;
 using TMPro;
@@ -17,9 +16,6 @@ namespace LostPassword
 
 		[SerializeField]
 		private GameObject speechBubble;
-
-		[SerializeField]
-		private TextAnimator_TMP textAnimator;
 
 		[SerializeField]
 		private TextMeshProUGUI text;
