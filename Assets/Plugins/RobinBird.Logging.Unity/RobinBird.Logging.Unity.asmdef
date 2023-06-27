@@ -1,0 +1,16 @@
+{
+    "name": "RobinBird.Logging.Unity",
+    "rootNamespace": "",
+    "references": [
+        "GUID:31617775b520b4e5c9cad16c78ddcb86"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,5 @@
+trigger_build:
+  stage: deploy
+  script:
+    - "curl -X POST -F token=${UNITY_PIPELINE_TRIGGER_KEY} -F ref=master https://gitlab.com/api/v4/projects/1275717/trigger/pipeline"
+    - "curl -X POST -F token=${NUGET_PIPELINE_TRIGGER_KEY} -F ref=master https://gitlab.com/api/v4/projects/4112333/trigger/pipeline"

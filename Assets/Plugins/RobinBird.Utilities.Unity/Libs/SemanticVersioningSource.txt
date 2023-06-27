@@ -1,0 +1,2 @@
+https://github.com/adamreeve/semver.net
+Release 2.0.0 (02.07.2021)

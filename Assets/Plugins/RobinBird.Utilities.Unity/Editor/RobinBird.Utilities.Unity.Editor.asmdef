@@ -1,0 +1,33 @@
+{
+    "name": "RobinBird.Utilities.Unity.Editor",
+    "rootNamespace": "",
+    "references": [
+        "RobinBird.Utilities.Unity",
+        "RobinBird.Utilities.Runtime",
+        "RobinBird.Logging.Runtime",
+        "RobinBird.Logging.Unity",
+        "Unity.Localization.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.modules.ui",
+            "expression": "0.0.0",
+            "define": "UNITY_UI_PACKAGE"
+        },
+        {
+            "name": "com.unity.localization",
+            "expression": "0.0.0",
+            "define": "UNITY_LOCALIZATION_PACKAGE"
+        }
+    ],
+    "noEngineReferences": false
+}

@@ -1,0 +1,17 @@
+{
+    "name": "RobinBird.Utilities.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "RobinBird.Logging.Runtime",
+        "Sentry"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

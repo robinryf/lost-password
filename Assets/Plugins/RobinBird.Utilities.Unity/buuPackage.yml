@@ -1,0 +1,7 @@
+uuid: 939d4ef5c4746794a91be369381dc882
+name: RobinBird.Utilities.Unity
+dependencies:
+    - type: git
+      relativeUrl: robinryf-csharp-utilities/runtime
+    - type: git
+      relativeUrl: robinryf-csharp-logging/unity

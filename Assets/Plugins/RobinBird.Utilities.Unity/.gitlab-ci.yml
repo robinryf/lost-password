@@ -1,0 +1,14 @@
+unity:
+    image: "robinryf/unity3d:latest"
+    script:
+    # Move repo content to own directory
+    - shopt -s extglob
+    - mkdir rootPackage
+    - mv !(rootPackage) rootPackage
+    - BASE_URL=`echo $CI_REPOSITORY_URL | sed "s;\/*$CI_PROJECT_PATH.*;;"`
+    - REPO_URL="${BASE_URL}/robinryf/gitlab-ci.git"
+    - git clone ${REPO_URL} gitlab-ci
+    - source gitlab-ci/unity3d/build-unity-package.sh
+    artifacts:
+        paths:
+        - $(pwd)/$(cat rootPackageName).unitypackage

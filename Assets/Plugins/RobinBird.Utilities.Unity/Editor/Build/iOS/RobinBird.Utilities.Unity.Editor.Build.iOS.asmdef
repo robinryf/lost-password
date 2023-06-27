@@ -1,0 +1,30 @@
+{
+    "name": "RobinBird.Utilities.Unity.Editor.Build.iOS",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b4953aa9f09186a45824fce75a30e0fa",
+        "GUID:97efdf419f140734bb2dcb0f10a74c54",
+        "GUID:31617775b520b4e5c9cad16c78ddcb86",
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
+        "GUID:2e77701fe0ceda44fb763f03ee704c37"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_IOS || OSX_USE_IOS_API_CALLS"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.localization",
+            "expression": "0.0.0",
+            "define": "UNITY_LOCALIZATION_PACKAGE"
+        }
+    ],
+    "noEngineReferences": false
+}
