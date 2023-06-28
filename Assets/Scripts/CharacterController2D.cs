@@ -170,7 +170,6 @@ public class CharacterController2D : MonoBehaviour
 		    if (comp is IInteractableObject interactableObject && interactableObject.IsInteractable)
 		    {
 			    CurrentInteractable = interactableObject;
-			    Debug.Log($"Set {CurrentInteractable} to interactable");
 			    break;
 		    }
 	    }

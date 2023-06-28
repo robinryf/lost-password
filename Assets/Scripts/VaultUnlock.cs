@@ -101,6 +101,7 @@ public class VaultUnlock : MonoBehaviour, IInteractableObject, StateMachine<Vaul
 
 	public void OnInteract()
 	{
+		var passwordGlyphs = FindObjectsOfType<PasswordGlyph>();
 		handle.Fire(Trigger.StartUnlock);
 		onePasswordUnityManager.EnqueueCommand(manager =>
 		{
@@ -121,9 +122,6 @@ public class VaultUnlock : MonoBehaviour, IInteractableObject, StateMachine<Vaul
 			{
 				gameVault = manager.CreateVault(MainGame.VaultName, "Vault created by gamification tutorial to 1Password",
 					VaultIcon.RoundDoor);
-
-
-				var passwordGlyphs = FindObjectsOfType<PasswordGlyph>();
 
 				foreach (PasswordGlyph passwordGlyph in passwordGlyphs)
 				{

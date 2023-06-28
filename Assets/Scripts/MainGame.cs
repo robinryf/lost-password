@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using System.Linq;
+using OnePassword;
 using OnePassword.Items;
 using OnePassword.Templates;
 using OnePassword.Vaults;
-using RobinBird.Utilities.Unity.Helper;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -31,25 +31,15 @@ namespace LostPassword
 
 		[SerializeField]
 		private OnePasswordUnityManager onePasswordUnityManager;
-		
-		private void Awake()
-		{
-			MainThreadHelper.Init();
-		}
 
-		private void Update()
-		{
-			MainThreadHelper.Instance.Update();
-		}
-
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 		[UnityEditor.MenuItem("CONTEXT/MainGame/Test Reveal")]
 		public static void TestReveal()
 		{
 			var mainGame = FindObjectOfType<MainGame>();
 			mainGame.RevealLostPassword();
 		}
-		#endif
+#endif
 
 		public void RevealLostPassword()
 		{
