@@ -8,6 +8,7 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Text;
 
 namespace RobinBird.Utilities.Runtime.Extensions
 {
@@ -18,6 +19,8 @@ namespace RobinBird.Utilities.Runtime.Extensions
     /// </summary>
     public static class ArrayExtensions
     {
+        private static StringBuilder printStringBuilder;
+        
         public static T[] Remove<T>(this T[] array, T itemToRemove)
         {
             var result = new List<T>(array);
@@ -105,6 +108,34 @@ namespace RobinBird.Utilities.Runtime.Extensions
         public static bool IsNullOrEmpty<T>(this T[] array)
         {
             return array == null || array.Length == 0;
+        }
+        
+        public static string ToValueString<T>(this T[] array)
+        {
+            if (array == null)
+            {
+                return "null";
+            }
+            if (printStringBuilder == null)
+            {
+                printStringBuilder = new StringBuilder();
+            }
+
+            printStringBuilder.Append("Count: ");
+            printStringBuilder.AppendLine(array.Length.ToString());
+
+            for (var i = 0; i < array.Length; i++)
+            {
+                T value = array[i];
+                printStringBuilder.Append("[");
+                printStringBuilder.Append(i.ToString());
+                printStringBuilder.Append("] ");
+                printStringBuilder.AppendLine(value.ToString());
+            }
+
+            string result = printStringBuilder.ToString();
+            printStringBuilder.Clear();
+            return result;
         }
     }
 }
